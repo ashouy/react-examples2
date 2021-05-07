@@ -1,33 +1,31 @@
-import React, { useState } from "react";
-import "./Example.css";
+import React, { Fragment, useState } from "react";
+import "./Example2.css";
 import UserForm from "./userForm/UserForm";
 import UserList from "./userList/UserList";
 const DUMMY_USERS = [
   {
     id: Math.random().toString(),
-    username: "jp",
+    username: "sf",
     age: 22,
   },
 ];
-
-const Example1 = () => {
+const Example2 = () => {
   const [users, setUsers] = useState(DUMMY_USERS);
   const addUserHandler = (user) => {
     setUsers((prevUsers) => {
       return [user, ...prevUsers];
     });
   };
-
   return (
-    <div>
+    <Fragment>
       <section id="user-form">
         <UserForm onAddUser={addUserHandler} />
       </section>
       <section id="user-list">
         <UserList users={users} />
       </section>
-    </div>
+    </Fragment>
   );
 };
 
-export default Example1;
+export default Example2;

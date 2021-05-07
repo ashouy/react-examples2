@@ -1,5 +1,6 @@
 import "./App.css";
 import Example1 from "./components/example1/Example1";
+import Example2 from "./components/example2/Example2";
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         </p>
         <Example1 />
       </section>
-      <hr/>
+      <hr />
+      <section id="second-example">
+        <Example2 />
+      </section>
     </div>
   );
 }
