@@ -14,6 +14,12 @@ function App() {
       </section>
       <hr />
       <section id="second-example">
+        <p>
+          In this example we implement the same past example introducing another
+          features. Here we use Fragments to avoid empty divs, useRef to handle
+          user input with another way, and Portals to render overlays and modals
+          in a diferente lacation, independently where it is used on project
+        </p>
         <Example2 />
       </section>
     </div>

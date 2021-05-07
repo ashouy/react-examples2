@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
 import classes from "./UserForm.module.css";
 
 const UserForm = (props) => {
-  const [username, setUsername] = useState("");
-  const [age, setAge] = useState("");
+  const usernameRef = useRef();
+  const ageRef = useRef();
+
   const [error, setError] = useState();
-  const usernameHandler = (event) => {
-    setUsername(event.target.value);
-  };
-  const ageHandler = (event) => {
-    setAge(event.target.value);
-  };
+
   const submitHandler = (event) => {
+    const username = usernameRef.current.value;
+    const age = ageRef.current.value;
+
     event.preventDefault();
     if (username.trim().length === 0 || age.trim().length === 0) {
       setError({
@@ -35,16 +34,16 @@ const UserForm = (props) => {
       username: username,
       age: age,
     };
-    setUsername("");
-    setAge("");
     props.onAddUser(data);
+    usernameRef.current.value = "";
+    ageRef.current.value = "";
   };
   const errorHandler = () => {
     setError(null);
   };
 
   return (
-    <div>
+    <Fragment>
       {error && (
         <ErrorModal
           title={error.title}
@@ -56,19 +55,14 @@ const UserForm = (props) => {
         <form onSubmit={submitHandler}>
           <div className={`${classes["form-control"]}`}>
             <label htmlFor="username">Username</label>
-            <input
-              id="username"
-              type="text"
-              value={username}
-              onChange={usernameHandler}
-            />
+            <input id="username" type="text" ref={usernameRef} />
             <label htmlFor="age">Age(Years)</label>
-            <input id="age" type="number" value={age} onChange={ageHandler} />
+            <input id="age" type="number" ref={ageRef} />
             <Button type="submit">Add User</Button>
           </div>
         </form>
       </Card>
-    </div>
+    </Fragment>
   );
 };
 

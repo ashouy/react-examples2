@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About
+
+In this project we learn about how to build ours own overlays and and wrapers. And how to build
+a cleanest structure with React Fragments and Portals. The project was inplemented with two different ways for you compare.
+
+![react_portal](https://media.giphy.com/media/uoPrSoWdK9e0ZlaOuO/giphy.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:
